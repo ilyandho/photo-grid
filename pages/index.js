@@ -1,4 +1,6 @@
 import Head from "next/head";
+import ImageList from "../components/imageList";
+import Navbar from "../components/navbar";
 export default function Home() {
   return (
     <div>
@@ -11,7 +13,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className=" text-3xl">Photo Grid</h1>
+      <Navbar />
+      <ImageList />
     </div>
   );
 }
