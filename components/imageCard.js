@@ -2,7 +2,6 @@ import React from "react";
 import Image from "next/image";
 
 const ImageCard = ({ img }) => {
-  console.log(img);
   return (
     <div className="group relative mb-3 cursor-auto">
       <div className="relative filter group-hover:brightness-75">
