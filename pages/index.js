@@ -27,8 +27,6 @@ export default function Home({ data }) {
     setPage(page + 1);
     // console.log(result);
   };
-  // console.log(data);
-  console.log(assets);
   return (
     <div>
       <Head>
@@ -48,7 +46,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/unsplash?page=1`, {
+  const res = await fetch(`/api/unsplash?page=1`, {
     mode: "no-cors",
   });
   const data = await res?.json();

@@ -4,9 +4,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import ImageCard from "./imageCard";
 
 export default function ImageList({ data, handleScroll }) {
-  // console.log(data);
   return (
-    <section className=" w-11/12 sm:container mx-auto mt-2 ">
+    <section className=" w-11/12 sm:container mx-auto mt-20  ">
       <div className=" col-count-1 sm:col-count-2 md:col-count-3 col-gap-3 col-fill-balance ">
         {" "}
         <InfiniteScroll
