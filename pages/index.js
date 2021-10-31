@@ -1,11 +1,19 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImageList from "../components/imageList";
 import Navbar from "../components/navbar";
 
 export default function Home({ data }) {
-  const [assets, setAssets] = useState(data);
+  const [assets, setAssets] = useState([]);
   const [page, setPage] = useState(2);
+
+  useEffect(async () => {
+    const result = await fetch(`api/unsplash?page=1`);
+    const data = await result.json();
+    setAssets(data);
+  }, []);
+
+  // optionally you can use unfetch package from npm or built yours to handle promise.
 
   // fetch extra pics
   const handleScroll = async () => {
@@ -42,15 +50,4 @@ export default function Home({ data }) {
       <ImageList data={assets} handleScroll={handleScroll} />
     </div>
   );
-}
-
-export async function getServerSideProps() {
-  // Fetch data from external API
-  const res = await fetch(`api/unsplash?page=1`, {
-    mode: "no-cors",
-  });
-  const data = await res?.json();
-
-  // Pass data to the page via props
-  return { props: { data } };
 }
