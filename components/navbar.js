@@ -5,11 +5,14 @@ const Navbar = () => {
   return (
     <header className="fixed z-50 left-0 right-0 top-0 bg-gray-900 text-white   body-font h-16 flex items-center shadow-md ">
       <div className="container m-auto  flex flex-wrap px-5  flex-row items-center ">
-        <Link href="#">
-          <h1 className="brand text-3xl font-black cursor-pointer mr-5">
+        <Link href="#" passHref>
+          <a>
             {" "}
-            Photo<span className="font-light">Grid</span>{" "}
-          </h1>
+            <h1 className="brand text-3xl font-black cursor-pointer mr-5">
+              {" "}
+              Photo<span className="font-light">Grid</span>{" "}
+            </h1>
+          </a>
         </Link>
 
         {/* <input type="search" className=""></input> */}
@@ -18,7 +21,6 @@ const Navbar = () => {
           <div className="h-10 flex flex-col justify-center align-middle text-gray-400">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -42,7 +44,7 @@ const Navbar = () => {
         </div>
 
         <div className="h-10 w-10 ml-auto text-white flex justify-center items-center cursor-pointer">
-          <Link href="https://github.com/ilyandho/photo-grid">
+          <Link href="https://github.com/ilyandho/photo-grid" passHref>
             <a target="_blank">
               {" "}
               <svg
