@@ -11,7 +11,19 @@ export default function Home({ data }) {
   const handleScroll = async () => {
     const res = await fetch(`/api/unsplash?page=${page}`, { mode: "no-cors" });
     const data = await res.json();
-    setAssets([...assets, ...data]);
+
+    const uniqueData = data.filter((img) => {
+      let unique = true;
+      assets.map((asset) => {
+        if (asset.id === img.id) {
+          unique = false;
+        }
+      });
+
+      return unique;
+    });
+
+    setAssets([...assets, ...uniqueData]);
     setPage(page + 1);
     // console.log(result);
   };
