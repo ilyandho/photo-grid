@@ -7,10 +7,14 @@ export default function Home({ data }) {
   const [assets, setAssets] = useState([]);
   const [page, setPage] = useState(2);
 
-  useEffect(async () => {
-    const result = await fetch(`api/unsplash?page=1`);
-    const data = await result.json();
-    setAssets(data);
+  useEffect(() => {
+    const fetcher = async () => {
+      const result = await fetch(`api/unsplash?page=1`);
+      const data = await result.json();
+      setAssets(data);
+    };
+
+    fetcher();
   }, []);
 
   // optionally you can use unfetch package from npm or built yours to handle promise.

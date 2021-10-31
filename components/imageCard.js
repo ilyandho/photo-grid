@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 const ImageCard = ({ img }) => {
+  console.log(img);
   return (
     <div className="group relative mb-3 cursor-auto">
       <div className="relative filter group-hover:brightness-75">
@@ -12,6 +13,7 @@ const ImageCard = ({ img }) => {
           layout="intrinsic"
           width={img.width}
           height={img.height}
+          alt={img.alt_description}
         />
       </div>
       <div className="absolute hidden group-hover:flex   items-center  bottom-5 left-5 right-5  text-white font-medium ">
@@ -20,8 +22,9 @@ const ImageCard = ({ img }) => {
             {" "}
             <Image
               className="rounded-full"
-              key={img.id}
+              key={img.urls.raw}
               src={img.user.profile_image.small}
+              alt={`avatar of ${img.user.name}`}
               layout="intrinsic"
               width={100}
               height={100}
