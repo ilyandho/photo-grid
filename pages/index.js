@@ -4,16 +4,19 @@ import ImageList from "../components/imageList";
 import Navbar from "../components/navbar";
 
 export default function Home({ data }) {
-  const [assests, setAssets] = useState(data);
+  const [assets, setAssets] = useState(data);
+  const [page, setPage] = useState(2);
 
   // fetch extra pics
   const handleScroll = async () => {
-    const res = await fetch(`/api/unsplash?page=10`, { mode: "no-cors" });
+    const res = await fetch(`/api/unsplash?page=${page}`, { mode: "no-cors" });
     const data = await res.json();
-    setAssets([...assests, data]);
+    setAssets([...assets, ...data]);
+    setPage(page + 1);
+    // console.log(result);
   };
   // console.log(data);
-  console.log(assests);
+  console.log(assets);
   return (
     <div>
       <Head>
@@ -26,7 +29,7 @@ export default function Home({ data }) {
       </Head>
 
       <Navbar />
-      <ImageList data={assests} handleScroll={handleScroll} />
+      <ImageList data={assets} handleScroll={handleScroll} />
     </div>
   );
 }
