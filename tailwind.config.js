@@ -7,5 +7,16 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    // ..
+    require("tailwindcss-multiple-columns"),
+  ],
+  variants: {
+    extend: {
+      multiColumn: ["responsive"],
+      filter: ["hover", "group-hover"],
+      display: ["hover", "group-hover"],
+      brightness: ["group-hover"],
+    },
+  },
 };
