@@ -27,8 +27,6 @@ export default function Home({ data }) {
     setPage(page + 1);
     // console.log(result);
   };
-  // console.log(data);
-  console.log(assets);
   return (
     <div>
       <Head>
