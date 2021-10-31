@@ -46,7 +46,7 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`/api/unsplash?page=1`, {
+  const res = await fetch(`api/unsplash?page=1`, {
     mode: "no-cors",
   });
   const data = await res?.json();
